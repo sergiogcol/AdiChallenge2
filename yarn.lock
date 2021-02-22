@@ -1154,6 +1154,36 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@effect-ts/core@^0.20.4":
+  version "0.20.4"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/@effect-ts/core/-/core-0.20.4.tgz#7a71fe082986621a2b20b0d8c38bc0628cae01b0"
+  integrity sha1-enH+CCmGYhorILDYw4vAYoyuAbA=
+  dependencies:
+    "@effect-ts/system" "^0.17.3"
+    "@effect-ts/tracing-utils" "^0.4.1"
+
+"@effect-ts/monocle@^0.18.1":
+  version "0.18.1"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/@effect-ts/monocle/-/monocle-0.18.1.tgz#1133de6b145c86f860b56f86bcda050eda63435d"
+  integrity sha1-ETPeaxRchvhgtW+GvNoFDtpjQ10=
+
+"@effect-ts/morphic@^0.18.2":
+  version "0.18.2"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/@effect-ts/morphic/-/morphic-0.18.2.tgz#5afa29eda86279561f7505e6f40146030a1c0863"
+  integrity sha1-Wvop7ahieVYfdQXm9AFGAwocCGM=
+
+"@effect-ts/system@^0.17.3":
+  version "0.17.3"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/@effect-ts/system/-/system-0.17.3.tgz#ce3af98aadf45d09f1b206829a36976d97684863"
+  integrity sha1-zjr5iq30XQnxsgaCmjaXbZdoSGM=
+  dependencies:
+    "@effect-ts/tracing-utils" "^0.4.1"
+
+"@effect-ts/tracing-utils@^0.4.1":
+  version "0.4.1"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/@effect-ts/tracing-utils/-/tracing-utils-0.4.1.tgz#8b308bbda1d8d00c9934fa0a8d92959df0467ad8"
+  integrity sha1-izCLvaHY0AyZNPoKjZKVnfBGetg=
+
 "@eslint/eslintrc@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.3.0.tgz#d736d6963d7003b6514e6324bec9c602ac340318"
@@ -1768,6 +1798,15 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+
+"@types/pg@^7.14.10":
+  version "7.14.10"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/@types/pg/-/pg-7.14.10.tgz#95c01de1a54e45d78058b9b5b4c365102e4113f7"
+  integrity sha1-lcAd4aVORdeAWLm1tMNlEC5BE/c=
+  dependencies:
+    "@types/node" "*"
+    pg-protocol "^1.2.0"
+    pg-types "^2.2.0"
 
 "@types/prettier@^2.0.0":
   version "2.1.6"
@@ -6123,6 +6162,14 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
+isomorphic-fetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz#0267b005049046d2421207215d45d6a262b8b8b4"
+  integrity sha1-AmewBQSQRtJCEgchXUXWomK4uLQ=
+  dependencies:
+    node-fetch "^2.6.1"
+    whatwg-fetch "^3.4.1"
+
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -7257,6 +7304,23 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+mobx-react-lite@^3.2.0:
+  version "3.2.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/mobx-react-lite/-/mobx-react-lite-3.2.0.tgz#331d7365a6b053378dfe9c087315b4e41c5df69f"
+  integrity sha1-Mx1zZaawUzeN/pwIcxW05Bxd9p8=
+
+mobx-react@^7.1.0:
+  version "7.1.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/mobx-react/-/mobx-react-7.1.0.tgz#d947cada3cfad294b4b6f692e969c242b9c16eaf"
+  integrity sha1-2UfK2jz60pS0tvaS6WnCQrnBbq8=
+  dependencies:
+    mobx-react-lite "^3.2.0"
+
+mobx@^6.1.7:
+  version "6.1.7"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/mobx/-/mobx-6.1.7.tgz#009c65f6909ee89ab42dd4b058577739f0d899df"
+  integrity sha1-AJxl9pCe6Jq0LdSwWFd3OfDYmd8=
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -7368,6 +7432,11 @@ no-case@^3.0.4:
   dependencies:
     lower-case "^2.0.2"
     tslib "^2.0.3"
+
+node-fetch@^2.6.1:
+  version "2.6.1"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
 
 node-forge@^0.10.0:
   version "0.10.0"
@@ -7939,6 +8008,27 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+pg-int8@1.0.1:
+  version "1.0.1"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/pg-int8/-/pg-int8-1.0.1.tgz#943bd463bf5b71b4170115f80f8efc9a0c0eb78c"
+  integrity sha1-lDvUY79bcbQXARX4D478mgwOt4w=
+
+pg-protocol@^1.2.0:
+  version "1.4.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/pg-protocol/-/pg-protocol-1.4.0.tgz#43a71a92f6fe3ac559952555aa3335c8cb4908be"
+  integrity sha1-Q6cakvb+OsVZlSVVqjM1yMtJCL4=
+
+pg-types@^2.2.0:
+  version "2.2.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/pg-types/-/pg-types-2.2.0.tgz#2d0250d636454f7cfa3b6ae0382fdfa8063254a3"
+  integrity sha1-LQJQ1jZFT3z6O2rgOC/fqAYyVKM=
+  dependencies:
+    pg-int8 "1.0.1"
+    postgres-array "~2.0.0"
+    postgres-bytea "~1.0.0"
+    postgres-date "~1.0.4"
+    postgres-interval "^1.1.0"
 
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.2.2:
   version "2.2.2"
@@ -8693,6 +8783,28 @@ postcss@^8.1.0:
     colorette "^1.2.1"
     nanoid "^3.1.20"
     source-map "^0.6.1"
+
+postgres-array@~2.0.0:
+  version "2.0.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/postgres-array/-/postgres-array-2.0.0.tgz#48f8fce054fbc69671999329b8834b772652d82e"
+  integrity sha1-SPj84FT7xpZxmZMpuINLdyZS2C4=
+
+postgres-bytea@~1.0.0:
+  version "1.0.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/postgres-bytea/-/postgres-bytea-1.0.0.tgz#027b533c0aa890e26d172d47cf9ccecc521acd35"
+  integrity sha1-AntTPAqokOJtFy1Hz5zOzFIazTU=
+
+postgres-date@~1.0.4:
+  version "1.0.7"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/postgres-date/-/postgres-date-1.0.7.tgz#51bc086006005e5061c591cee727f2531bf641a8"
+  integrity sha1-UbwIYAYAXlBhxZHO5yfyUxv2Qag=
+
+postgres-interval@^1.1.0:
+  version "1.2.0"
+  resolved "https://tools.adidas-group.com/artifactory/api/npm/npm-virtual/postgres-interval/-/postgres-interval-1.2.0.tgz#b460c82cb1587507788819a06aa0fffdb3544695"
+  integrity sha1-tGDILLFYdQd4iBmgaqD//bNURpU=
+  dependencies:
+    xtend "^4.0.0"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
