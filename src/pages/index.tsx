@@ -1,17 +1,15 @@
-import { BarChatValues } from "@app/bar-chart-values"
-import { Github } from "@app/github"
-import {} from "@app/prelude"
-import { HomeState } from "@components/Home/state"
+import {} from "../prelude"
 import { runPromiseExit } from "@effect-ts/core/Async"
 import * as Sy from "@effect-ts/core/Sync"
 import * as Sl from "@effect-ts/core/Sync/Layer"
 import type { NextPage } from "next"
+import { BarChartValues } from "../bar-chart-values"
 
 import { Home, LiveHome } from "../components/Home"
+import { HomeState } from "../components/Home/state"
 
-export const { HomePage, getBarChatValues } = Sy.gen(function* (_) {
-  //const { getOrg } = yield* _(Github)
-  const { getBarChatValues } = yield* _(BarChatValues)
+export const { HomePage, getBarChartValues } = Sy.gen(function* (_) {
+  const { getBarChartValues } = yield* _(BarChartValues)
   const HomeComponent = yield* _(Home)
   const { propagateExit } = yield* _(HomeState)
 
@@ -24,14 +22,14 @@ export const { HomePage, getBarChatValues } = Sy.gen(function* (_) {
 
   return {
     HomePage: NextPage,
-    getBarChatValues
+    getBarChartValues
   }
 })
   ["|>"](Sl.provideSyncLayer(LiveHome))
   ["|>"](Sy.run)
 
 HomePage.getInitialProps = async () => {
-  const initial = await runPromiseExit(getBarChatValues())
+  const initial = await runPromiseExit(getBarChartValues())
   return {
     initial
   }

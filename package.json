@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@effect-ts/core": "^0.20.4",
-    "@effect-ts/monocle": "^0.18.1",
-    "@effect-ts/morphic": "^0.18.2",
-    "@effect-ts/system": "^0.17.3",
+    "@effect-ts/core": "^0.7.29",
+    "@effect-ts/monocle": "^0.6.30",
+    "@effect-ts/morphic": "^0.5.11",
+    "@effect-ts/system": "^0.5.22",
+    "@effect-ts/tracing-utils": "^0.4.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -15,9 +16,13 @@
     "@types/pg": "^7.14.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "fast-check": "^2.13.0",
     "isomorphic-fetch": "^3.0.0",
     "mobx": "^6.1.7",
     "mobx-react": "^7.1.0",
+    "next": "^10.0.7",
+    "preact": "^10.5.12",
+    "preact-render-to-string": "^5.1.12",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
@@ -25,10 +30,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "next dev",
+    "build": "next build",
+    "serve": "next start"
   },
   "eslintConfig": {
     "extends": [

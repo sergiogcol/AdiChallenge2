@@ -63,7 +63,7 @@ export const makeHomeSate = Sy.gen(function* (_) {
   }
 
   function next() {
-    const current = state.current;
+
 
     const cancel = As.runAsync(getBarChartValues(), propagateExit);
 
