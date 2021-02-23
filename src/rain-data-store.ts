@@ -1,8 +1,13 @@
 import { makeObservable, observable, action } from "mobx"
 
+interface RainfallByDay {
+    day: number;
+    amount: number;
+}
 export class RainDataStoreImpl {
     pressure: number = 970
     temperature: number = 10
+    days: RainfallByDay[] = []
 
     constructor(){
         makeObservable(this, {
@@ -19,6 +24,10 @@ export class RainDataStoreImpl {
 
     modifyTemperature(value: number) {
         this.temperature = value
+    }
+
+    addDay(day: RainfallByDay){
+        this.days.push(day) 
     }
 }
 

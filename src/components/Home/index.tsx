@@ -8,9 +8,10 @@ import { observer } from "mobx-react"
 import React from "react"
 import * as State from "./state"
 import { RainfallAmount } from "../../model"
-import RangeSlider from "../Pressure-slider/range-slider"
+import RangeSlider from "../Range-slider/range-slider"
 import { LiveBarChatValues } from "../../bar-chart-values"
 import { RainDataStore } from "../../rain-data-store"
+import RainfallChart from "../Rainfall-chart/rainfall-chart"
 
 export const makeHome = Sy.gen(function* (_) {
   const { state } = yield* _(State.HomeState)
@@ -22,13 +23,12 @@ export const makeHome = Sy.gen(function* (_) {
   const Done = observer(({ data }: { data: readonly RainfallAmount[] }) => {
     if (data.length > 0) {
       const values = data[0]
+      values.days.forEach(day => RainDataStore.addDay(day))
       return (
         <>
           <RangeSlider rainDataStore={RainDataStore} isPressureComp={true} color="#00a8c1"/>
           <RangeSlider rainDataStore={RainDataStore} isPressureComp={false} color="#3e0489"/>
-      <text>Pressure: {RainDataStore.pressure}</text>
-      <br></br>
-      <text>Temperature: {RainDataStore.temperature}</text>
+          <RainfallChart rainDataStore={RainDataStore}/>
         </>
       )
     }
