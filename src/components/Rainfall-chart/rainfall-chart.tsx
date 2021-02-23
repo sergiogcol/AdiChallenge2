@@ -1,31 +1,32 @@
 import { observer } from "mobx-react";
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { RainDataStoreImpl } from "../../rain-data-store";
 
 const Styles = styled.div`
   width: 800px;
-  height: 300px;
-  display: block;
-  background: purple;
+  height: 250px;
+  display: flex;
+  justify-content: space-evenly;
   .numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     color: #fff;
     margin: 0;
     padding: 0;
     width: 50px;
     height: 100%;
-    display: inline-block;
-    float: left;
   }
 
   .numbers li {
     list-style: none;
-    height: 14.3%;
+    height: 20%;
     position: relative;
   }
 
   .numbers span {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     position: absolute;
     bottom: 0;
@@ -34,13 +35,15 @@ const Styles = styled.div`
   }
 
   .bars {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
     color: #fff;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     background: #555;
     margin: 0;
     padding: 0;
-    display: inline-block;
     width: 90%;
     height: 100%;
     box-shadow: 0 0 10px 0 #555;
@@ -48,16 +51,15 @@ const Styles = styled.div`
   }
 
   .bars li {
-    display: table-cell;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
     width: 100px;
     height: 300px;
-    position: relative;
   }
 
   .bars span {
     width: 100%;
-    position: absolute;
-    bottom: -30px;
     text-align: center;
     color: black;
   }
@@ -67,10 +69,8 @@ interface BarStyleProps {
   height: number;
 }
 const BarStyle = styled.div`
-  display: block;
   background: #17c0eb;
   width: 50px;
-  position: absolute;
   bottom: 0;
   margin-left: 25px;
   text-align: center;

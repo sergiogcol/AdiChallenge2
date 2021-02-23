@@ -12,7 +12,15 @@ import RangeSlider from "../Range-slider/range-slider"
 import { LiveBarChatValues } from "../../bar-chart-values"
 import { RainDataStore } from "../../rain-data-store"
 import RainfallChart from "../Rainfall-chart/rainfall-chart"
+import RainChanceChart from "../Rain-chance-chart/rain-chance-chart"
+import styled from "styled-components";
 
+const Styles = styled.div`
+  margin: 0
+  padding: 0
+  width: 100vw
+  height: 1000px
+`
 export const makeHome = Sy.gen(function* (_) {
   const { state } = yield* _(State.HomeState)
 
@@ -25,11 +33,12 @@ export const makeHome = Sy.gen(function* (_) {
       const values = data[0]
       values.days.forEach(day => RainDataStore.addDay(day))
       return (
-        <>
+        <Styles>
           <RangeSlider rainDataStore={RainDataStore} isPressureComp={true} color="#00a8c1"/>
           <RangeSlider rainDataStore={RainDataStore} isPressureComp={false} color="#3e0489"/>
           <RainfallChart rainDataStore={RainDataStore}/>
-        </>
+          <RainChanceChart rainDataStore={RainDataStore}/>
+        </Styles>
       )
     }
     return <div>Done</div>
