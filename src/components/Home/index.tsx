@@ -3,7 +3,7 @@ import { tag } from "@effect-ts/core/Has"
 import * as Sy from "@effect-ts/core/Sync"
 import * as Sl from "@effect-ts/core/Sync/Layer"
 import type { _A } from "@effect-ts/core/Utils"
-import { _E, matchTag, onAdtElement } from "@effect-ts/core/Utils"
+import { matchTag } from "@effect-ts/core/Utils"
 import { observer } from "mobx-react"
 import React from "react"
 import * as State from "./state"
@@ -12,7 +12,7 @@ import PressureSlider from "../Pressure-slider/pressure-slider"
 import { LiveBarChatValues } from "../../bar-chart-values"
 
 export const makeHome = Sy.gen(function* (_) {
-  const { next, state } = yield* _(State.HomeState)
+  const { state } = yield* _(State.HomeState)
 
   function Init() {
     return <div>Init</div>
@@ -23,16 +23,6 @@ export const makeHome = Sy.gen(function* (_) {
       const values = data[0]
       return (
         <>
-          <div key={values.request}>{values.request}</div>
-          {values.days.map((a) => {
-            return (
-              <>
-                <text>{a.day}</text>
-                <text>{a.amount}</text>
-                <br></br>
-              </>
-            )
-          })}
           <PressureSlider />
         </>
       )
@@ -60,13 +50,13 @@ export const makeHome = Sy.gen(function* (_) {
   }
 
   return observer(() => {
-    React.useEffect(() => {
+   /*  React.useEffect(() => {
       state.current["|>"](
         onAdtElement("Init", () => {
           next()
         })
       )
-    }, [])
+    }, []) */
 
     return state.current["|>"](
       matchTag({

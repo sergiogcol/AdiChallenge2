@@ -62,19 +62,8 @@ export const makeHomeSate = Sy.gen(function* (_) {
     );
   }
 
-  function next() {
-
-
-    const cancel = As.runAsync(getBarChartValues(), propagateExit);
-
-    state.current = new Loading();
-
-    return cancel;
-  }
-
   return {
     state,
-    next,
     propagateExit,
   };
 });
