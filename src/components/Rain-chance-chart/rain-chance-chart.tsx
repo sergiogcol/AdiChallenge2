@@ -100,6 +100,7 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
             legendOffset: -40,
             legendPosition: "middle",
           }}
+          curve ="linear"
           pointSize={10}
           pointColor={{ theme: "background" }}
           pointBorderWidth={2}

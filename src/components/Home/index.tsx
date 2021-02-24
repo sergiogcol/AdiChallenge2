@@ -19,7 +19,7 @@ const Styles = styled.div`
   margin: 0
   padding: 0
   width: 100vw
-  height: 1000px
+  height: 100vh
 `
 export const makeHome = Sy.gen(function* (_) {
   const { state } = yield* _(State.HomeState)
