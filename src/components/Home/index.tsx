@@ -11,9 +11,9 @@ import { RainfallAmount } from "../../model";
 import RangeSlider from "../Range-slider/range-slider";
 import { LiveBarChatValues } from "../../bar-chart-values";
 import { RainDataStore } from "../../rain-data-store";
-import RainfallChart from "../Rainfall-chart/rainfall-chart";
 import RainChanceChart from "../Rain-chance-chart/rain-chance-chart";
 import styled from "styled-components";
+import RainFallChart from "../Rainfall-chart/rainfall-chart";
 
 const Styles = styled.div`
   margin: 0;
@@ -58,7 +58,7 @@ export const makeHome = Sy.gen(function* (_) {
             />
           </Box>
           <Box>
-            <RainfallChart rainDataStore={RainDataStore} />
+            <RainFallChart rainDataStore={RainDataStore} />
             <RainChanceChart rainDataStore={RainDataStore} />
           </Box>
         </Styles>

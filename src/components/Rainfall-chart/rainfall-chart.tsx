@@ -1,119 +1,128 @@
+import { ResponsiveBar } from "@nivo/bar";
 import { observer } from "mobx-react";
-import React from "react";
-import styled from "styled-components";
 import { RainDataStoreImpl } from "../../rain-data-store";
+import styled from "styled-components";
 
 const Styles = styled.div`
   width: 100%;
   height: 45%;
-  display: flex;
-  justify-content: space-evenly;
-  .numbers {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    width: 50px;
-    height: 100%;
-  }
-
-  .numbers li {
-    list-style: none;
-    height: 20%;
-    position: relative;
-  }
-
-  .numbers span {
-    font-size: 18px;
-    font-weight: 600;
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-    color: black;
-  }
-
-  .bars {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    background: #555;
-    margin: 0;
-    padding: 0;
-    width: 90%;
-    height: 100%;
-    box-shadow: 0 0 10px 0 #555;
-    border-radius: 5px;
-  }
-
-  .bars li {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 100px;
-    height: 300px;
-  }
-
-  .bars span {
-    width: 100%;
-    text-align: center;
-    color: black;
-  }
 `;
 
-interface BarStyleProps {
-  height: number;
-}
-const BarStyle = styled.div`
-  background: #17c0eb;
-  width: 50px;
-  bottom: 0;
-  margin-left: 25px;
-  text-align: center;
-  box-shadow: 0 0 10px 0 rgba(23, 192, 235, 0.5);
-  height: ${(props: BarStyleProps) => String(props.height * 2)}px;
-`;
-
-interface RainfallChartProps {
+interface RainChanceChartProps {
   rainDataStore: RainDataStoreImpl;
 }
 
-const RainfallChart: React.FC<RainfallChartProps> = observer(
+const RainFallChart: React.FC<RainChanceChartProps> = observer(
   ({ rainDataStore }) => {
+    const rainFallData: object[] = [];
+    rainDataStore.days.forEach((day) => {
+      const dayRainFall = {
+        Day: `Day ${day.day}`,
+        "Amount (l/m2)": day.amount,
+        "Amount (l/m2)Color": "hsl(168, 70%, 50%)",
+      };
+      rainFallData.push(dayRainFall);
+    });
+
     return (
       <Styles>
-        <ul className="numbers">
-          <li>
-            <span>200</span>
-          </li>
-          <li>
-            <span>150</span>
-          </li>
-          <li>
-            <span>100</span>
-          </li>
-          <li>
-            <span>50</span>
-          </li>
-          <li>
-            <span>0</span>
-          </li>
-        </ul>
-        <ul className="bars">
-          {rainDataStore.days.map((day) => (
-            <li>
-              <BarStyle key={day.day} height={day.amount} />
-              <span>Day {day.day}</span>
-            </li>
-          ))}
-        </ul>
+        <ResponsiveBar
+          data={rainFallData}
+          keys={["Amount (l/m2)"]}
+          indexBy="Day"
+          margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+          padding={0.3}
+          groupMode="grouped"
+          valueScale={{ type: "linear" }}
+          indexScale={{ type: "band", round: true }}
+          colors={{ scheme: "nivo" }}
+          defs={[
+            {
+              id: "dots",
+              type: "patternDots",
+              background: "inherit",
+              color: "#38bcb2",
+              size: 4,
+              padding: 1,
+              stagger: true,
+            },
+            {
+              id: "lines",
+              type: "patternLines",
+              background: "inherit",
+              color: "#eed312",
+              rotation: -45,
+              lineWidth: 6,
+              spacing: 10,
+            },
+          ]}
+          fill={[
+            {
+              match: {
+                id: "fries",
+              },
+              id: "dots",
+            },
+            {
+              match: {
+                id: "sandwich",
+              },
+              id: "lines",
+            },
+          ]}
+          borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+          axisTop={null}
+          axisRight={null}
+          axisBottom={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: "Days",
+            legendPosition: "middle",
+            legendOffset: 32,
+          }}
+          axisLeft={{
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: "Rainfall Amount (l/m2)",
+            legendPosition: "middle",
+            legendOffset: -40,
+          }}
+          labelSkipWidth={12}
+          labelSkipHeight={12}
+          labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+          legends={[
+            {
+              dataFrom: "keys",
+              anchor: "bottom-right",
+              direction: "column",
+              justify: false,
+              translateX: 120,
+              translateY: 0,
+              itemsSpacing: 2,
+              itemWidth: 100,
+              itemHeight: 20,
+              itemDirection: "left-to-right",
+              itemOpacity: 0.85,
+              symbolSize: 20,
+              effects: [
+                {
+                  on: "hover",
+                  style: {
+                    itemOpacity: 1,
+                  },
+                },
+              ],
+            },
+          ]}
+          animate={true}
+          motionStiffness={90}
+          motionDamping={15}
+        />
       </Styles>
     );
   }
 );
 
-export default RainfallChart;
+export default RainFallChart;
