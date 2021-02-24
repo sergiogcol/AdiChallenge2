@@ -2,6 +2,8 @@ import { ResponsiveBar } from "@nivo/bar";
 import { observer } from "mobx-react";
 import { RainDataStoreImpl } from "../../rain-data-store";
 import styled from "styled-components";
+import { pipe } from "@effect-ts/system/Function";
+import { map } from "@effect-ts/system/Array";
 
 const Styles = styled.div`
   width: 100%;
@@ -14,20 +16,21 @@ interface RainChanceChartProps {
 
 const RainFallChart: React.FC<RainChanceChartProps> = observer(
   ({ rainDataStore }) => {
-    const rainFallData: object[] = [];
-    rainDataStore.days.forEach((day) => {
-      const dayRainFall = {
-        Day: `Day ${day.day}`,
-        "Amount (l/m2)": day.amount,
-        "Amount (l/m2)Color": "hsl(307, 70%, 50%)",
-      };
-      rainFallData.push(dayRainFall);
-    });
+    const rainFallData = pipe(
+      rainDataStore.days,
+      map((day) => {
+        return {
+          Day: `Day ${day.day}`,
+          "Amount (l/m2)": day.amount,
+          "Amount (l/m2)Color": "hsl(307, 70%, 50%)",
+        };
+      })
+    );
 
     return (
       <Styles>
         <ResponsiveBar
-          data={rainFallData}
+          data={rainFallData as object[]}
           keys={["Amount (l/m2)"]}
           indexBy="Day"
           margin={{ top: 50, right: 130, bottom: 50, left: 60 }}

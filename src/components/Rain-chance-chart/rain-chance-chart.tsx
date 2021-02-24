@@ -2,6 +2,8 @@ import { ResponsiveLine, Serie } from "@nivo/line";
 import { observer } from "mobx-react";
 import { RainDataStoreImpl } from "../../rain-data-store";
 import styled from "styled-components";
+import { pipe } from "@effect-ts/system/Function";
+import { map } from "@effect-ts/system/Array";
 
 const Styles = styled.div`
   width: 100%;
@@ -38,38 +40,43 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
       const lower_bound = Math.max(0.5 * mean, 0);
       return {
         "Lower Bound": lower_bound,
-        "Mean": mean,
+        Mean: mean,
         "Upper Bound": upper_bound,
       };
     };
-    const rainChanceData: Serie[] = [];
+
     const chartLineIds = [
       { id: "Lower Bound" },
       { id: "Mean" },
       { id: "Upper Bound" },
     ];
-    chartLineIds.forEach((val) => {
-      const dayRainChance: RainChanceData = {
+
+    const rainChanceData = pipe(
+      chartLineIds,
+      map((val) => ({
         id: val.id,
         color: "hsl(64, 70%, 50%)",
-        data: rainDataStore.days.map((day) => {
-          const dayChanceOfRain = chanceOfRain(
-            rainDataStore.pressure,
-            rainDataStore.temperature,
-            day.amount
-          );
-          return {
-            x: `Day ${day.day}`,
-            y: dayChanceOfRain[val.id],
-          };
-        }),
-      };
-      rainChanceData.push(dayRainChance);
-    });
+        data: pipe(
+          rainDataStore.days,
+          map((day) => {
+            const dayChanceOfRain = chanceOfRain(
+              rainDataStore.pressure,
+              rainDataStore.temperature,
+              day.amount
+            );
+            return {
+              x: `Day ${day.day}`,
+              y: dayChanceOfRain[val.id],
+            };
+          })
+        ),
+      })),
+    );
+
     return (
       <Styles>
         <ResponsiveLine
-          data={rainChanceData}
+          data={rainChanceData as unknown as Serie[]}
           margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
           xScale={{ type: "point" }}
           yScale={{
@@ -100,7 +107,7 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
             legendOffset: -40,
             legendPosition: "middle",
           }}
-          curve ="linear"
+          curve="linear"
           pointSize={10}
           pointColor={{ theme: "background" }}
           pointBorderWidth={2}
