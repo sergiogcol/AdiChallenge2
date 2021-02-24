@@ -4,8 +4,8 @@ import { RainDataStoreImpl } from "../../rain-data-store";
 import styled from "styled-components";
 
 const Styles = styled.div`
-  width: 1000px;
-  height: 1000px;
+  width: 100%;
+  height: 45%;
 `;
 interface RainChanceChartProps {
   rainDataStore: RainDataStoreImpl;

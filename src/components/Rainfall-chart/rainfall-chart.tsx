@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { RainDataStoreImpl } from "../../rain-data-store";
 
 const Styles = styled.div`
-  width: 800px;
-  height: 250px;
+  width: 100%;
+  height: 45%;
   display: flex;
   justify-content: space-evenly;
   .numbers {
@@ -75,7 +75,7 @@ const BarStyle = styled.div`
   margin-left: 25px;
   text-align: center;
   box-shadow: 0 0 10px 0 rgba(23, 192, 235, 0.5);
-  height: ${(props: BarStyleProps) => String(props.height)}px;
+  height: ${(props: BarStyleProps) => String(props.height * 2)}px;
 `;
 
 interface RainfallChartProps {
