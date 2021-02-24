@@ -19,7 +19,7 @@ const RainFallChart: React.FC<RainChanceChartProps> = observer(
       const dayRainFall = {
         Day: `Day ${day.day}`,
         "Amount (l/m2)": day.amount,
-        "Amount (l/m2)Color": "hsl(168, 70%, 50%)",
+        "Amount (l/m2)Color": "hsl(307, 70%, 50%)",
       };
       rainFallData.push(dayRainFall);
     });
@@ -36,40 +36,6 @@ const RainFallChart: React.FC<RainChanceChartProps> = observer(
           valueScale={{ type: "linear" }}
           indexScale={{ type: "band", round: true }}
           colors={{ scheme: "nivo" }}
-          defs={[
-            {
-              id: "dots",
-              type: "patternDots",
-              background: "inherit",
-              color: "#38bcb2",
-              size: 4,
-              padding: 1,
-              stagger: true,
-            },
-            {
-              id: "lines",
-              type: "patternLines",
-              background: "inherit",
-              color: "#eed312",
-              rotation: -45,
-              lineWidth: 6,
-              spacing: 10,
-            },
-          ]}
-          fill={[
-            {
-              match: {
-                id: "fries",
-              },
-              id: "dots",
-            },
-            {
-              match: {
-                id: "sandwich",
-              },
-              id: "lines",
-            },
-          ]}
           borderColor={{ from: "color", modifiers: [["darker", 1.6]] }}
           axisTop={null}
           axisRight={null}
@@ -92,30 +58,6 @@ const RainFallChart: React.FC<RainChanceChartProps> = observer(
           labelSkipWidth={12}
           labelSkipHeight={12}
           labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
-          legends={[
-            {
-              dataFrom: "keys",
-              anchor: "bottom-right",
-              direction: "column",
-              justify: false,
-              translateX: 120,
-              translateY: 0,
-              itemsSpacing: 2,
-              itemWidth: 100,
-              itemHeight: 20,
-              itemDirection: "left-to-right",
-              itemOpacity: 0.85,
-              symbolSize: 20,
-              effects: [
-                {
-                  on: "hover",
-                  style: {
-                    itemOpacity: 1,
-                  },
-                },
-              ],
-            },
-          ]}
           animate={true}
           motionStiffness={90}
           motionDamping={15}

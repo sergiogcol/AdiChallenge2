@@ -96,7 +96,7 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "probability of rain",
+            legend: "Probability Of Rain",
             legendOffset: -40,
             legendPosition: "middle",
           }}
@@ -109,14 +109,14 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
           useMesh={true}
           legends={[
             {
-              anchor: "bottom-right",
-              direction: "column",
+              anchor: "top",
+              direction: "row",
               justify: false,
-              translateX: 100,
-              translateY: 0,
+              translateX: 0,
+              translateY: -30,
               itemsSpacing: 0,
               itemDirection: "left-to-right",
-              itemWidth: 80,
+              itemWidth: 100,
               itemHeight: 20,
               itemOpacity: 0.75,
               symbolSize: 12,
