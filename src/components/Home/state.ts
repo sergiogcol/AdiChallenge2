@@ -35,7 +35,7 @@ export interface State<E, A> {
   current: Init | Loading | Error<E> | Done<A> | Interrupted;
 }
 
-export const makeHomeSate = Sy.gen(function* (_) {
+export const makeHomeState = Sy.gen(function* (_) {
   const { getBarChartValues } = yield* _(BarChartValues);
   const state = observable(<
     State<_E<ReturnType<typeof getBarChartValues>>, readonly RainfallAmount[]>
@@ -68,11 +68,11 @@ export const makeHomeSate = Sy.gen(function* (_) {
   };
 });
 
-export interface HomeState extends _A<typeof makeHomeSate> {}
+export interface HomeState extends _A<typeof makeHomeState> {}
 
 export const HomeState = tag<HomeState>();
 
-export const LiveHomeState = Sl.fromSync(HomeState)(makeHomeSate);
+export const LiveHomeState = Sl.fromSync(HomeState)(makeHomeState);
 
 export type StateError<S extends State<any, any>> = [S] extends [
   State<infer E, infer A>

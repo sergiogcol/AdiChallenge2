@@ -32,6 +32,7 @@ const Box = styled.div`
   width: 50%;
   height: 100%;
 `;
+
 export const makeHome = Sy.gen(function* (_) {
   const { state } = yield* _(State.HomeState);
 
@@ -68,7 +69,7 @@ export const makeHome = Sy.gen(function* (_) {
   });
 
   function Loading() {
-    return <div>Loading</div>;
+    return <div>Loading Data</div>;
   }
 
   function Error({
@@ -87,14 +88,6 @@ export const makeHome = Sy.gen(function* (_) {
   }
 
   return observer(() => {
-    /*  React.useEffect(() => {
-      state.current["|>"](
-        onAdtElement("Init", () => {
-          next()
-        })
-      )
-    }, []) */
-
     return state.current["|>"](
       matchTag({
         Done: ({ value }) => <Done data={value} />,

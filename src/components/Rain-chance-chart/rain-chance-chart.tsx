@@ -13,17 +13,6 @@ interface RainChanceChartProps {
   rainDataStore: RainDataStoreImpl;
 }
 
-interface ChartData {
-  x: string;
-  y: number;
-}
-
-interface RainChanceData {
-  id: string;
-  color: string;
-  data: ChartData[];
-}
-
 const RainChanceChart: React.FC<RainChanceChartProps> = observer(
   ({ rainDataStore }) => {
     const chanceOfRain = (
@@ -45,14 +34,8 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
       };
     };
 
-    const chartLineIds = [
-      { id: "Lower Bound" },
-      { id: "Mean" },
-      { id: "Upper Bound" },
-    ];
-
     const rainChanceData = pipe(
-      chartLineIds,
+      [{ id: "Lower Bound" }, { id: "Mean" }, { id: "Upper Bound" }],
       map((val) => ({
         id: val.id,
         color: "hsl(64, 70%, 50%)",
@@ -70,13 +53,13 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
             };
           })
         ),
-      })),
+      }))
     );
 
     return (
       <Styles>
         <ResponsiveLine
-          data={rainChanceData as unknown as Serie[]}
+          data={(rainChanceData as unknown) as Serie[]}
           margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
           xScale={{ type: "point" }}
           yScale={{

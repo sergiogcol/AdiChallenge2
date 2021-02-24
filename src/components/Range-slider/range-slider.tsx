@@ -4,14 +4,11 @@ import styled from "styled-components";
 import { RainDataStoreImpl } from "../../rain-data-store";
 
 const sliderThumbStyles = (props: React.CSSProperties) => `
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   background: ${props.color};
   cursor: pointer;
-  outline: 5px solid #333;
-  opacity: ${props.opacity};
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  border-radius: 35px;
 `;
 
 const Styles = styled.div`
@@ -22,7 +19,7 @@ const Styles = styled.div`
   margin-bottom: 2rem;
   .value {
     flex: 1;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .slider {
     flex: 6;
@@ -51,9 +48,7 @@ interface RangeSliderProps {
 
 const RangeSlider: React.FC<RangeSliderProps> = observer(
   ({ rainDataStore, isPressureComp, color }) => {
-    const initialPressure = (970 + 1030) / 2;
-    const initialTemperature = (35 + 10) / 2;
-    const [value, setValue] = useState<number>(isPressureComp ? initialPressure : initialTemperature);
+    const [value, setValue] = useState<number>(isPressureComp ? 970 : 10);
     const handleOnChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setValue(parseInt(e.target.value));
       isPressureComp
@@ -61,7 +56,7 @@ const RangeSlider: React.FC<RangeSliderProps> = observer(
         : rainDataStore.modifyTemperature(parseInt(e.target.value));
     };
     return (
-      <Styles opacity={value > 10 ? value / 255 : 0.1} color={color}>
+      <Styles color={color}>
         <input
           type="range"
           min={isPressureComp ? 970 : 10}
