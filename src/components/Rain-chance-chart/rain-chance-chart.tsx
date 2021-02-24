@@ -61,12 +61,11 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
         <ResponsiveLine
           data={(rainChanceData as unknown) as Serie[]}
           margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-          xScale={{ type: "point" }}
           yScale={{
             type: "linear",
             min: "auto",
             max: "auto",
-            stacked: true,
+            stacked: false,
             reverse: false,
           }}
           yFormat=" >-.2f"
@@ -91,6 +90,9 @@ const RainChanceChart: React.FC<RainChanceChartProps> = observer(
             legendPosition: "middle",
           }}
           curve="linear"
+          lineWidth={0}
+          enableArea={true}
+          enablePoints={true}
           pointSize={10}
           pointColor={{ theme: "background" }}
           pointBorderWidth={2}

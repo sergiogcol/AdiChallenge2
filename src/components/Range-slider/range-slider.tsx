@@ -11,7 +11,7 @@ const sliderThumbStyles = (props: React.CSSProperties) => `
   border-radius: 35px;
 `;
 
-const Styles = styled.div`
+const Box = styled.div`
   display: flex;
   align-items: center;
   color: #888;
@@ -19,13 +19,15 @@ const Styles = styled.div`
   margin-bottom: 2rem;
   .value {
     flex: 1;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+    margin-left: 2.5%;
   }
   .slider {
     flex: 6;
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
+    margin-left: 5%;
     border-radius: 5px;
     background: #efefef;
     outline: none;
@@ -55,18 +57,24 @@ const RangeSlider: React.FC<RangeSliderProps> = observer(
         ? rainDataStore.modifyPressure(parseInt(e.target.value))
         : rainDataStore.modifyTemperature(parseInt(e.target.value));
     };
+    console.log(rainDataStore.pressure, rainDataStore.temperature);
     return (
-      <Styles color={color}>
-        <input
-          type="range"
-          min={isPressureComp ? 970 : 10}
-          max={isPressureComp ? 1030 : 35}
-          value={value}
-          className="slider"
-          onChange={handleOnChange}
-        />
-        <div className="value">{value}</div>
-      </Styles>
+      <>
+        <h2 style={{ textAlign: "center", color: "#f47560" }}>
+          {isPressureComp ? "Pressure (hPa)" : "Temperature (°C)"}
+        </h2>
+        <Box color={color}>
+          <input
+            type="range"
+            min={isPressureComp ? 970 : 10}
+            max={isPressureComp ? 1030 : 35}
+            value={value}
+            className="slider"
+            onChange={handleOnChange}
+          />
+          <div className="value">{value}</div>
+        </Box>
+      </>
     );
   }
 );

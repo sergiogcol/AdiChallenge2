@@ -20,6 +20,20 @@ const Styles = styled.div`
   padding: 0;
   width: 100vw;
   height: 100vh;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+`;
+const MainTitle = styled.h1`
+  text-align: center;
+  color: #f47560;
+  text-transform: uppercase;
+  height: 10%;
+  margin: 0;
+  padding-top: 30px;
+`;
+const Container = styled.div`
+  width: 100%;
+  height: 90%;
   display: flex;
   align-items: center;
   align-content: space-around;
@@ -46,22 +60,25 @@ export const makeHome = Sy.gen(function* (_) {
       values.days.forEach((day) => RainDataStore.addDay(day));
       return (
         <Styles>
-          <Box>
-            <RangeSlider
-              rainDataStore={RainDataStore}
-              isPressureComp={true}
-              color="#00a8c1"
-            />
-            <RangeSlider
-              rainDataStore={RainDataStore}
-              isPressureComp={false}
-              color="#3e0489"
-            />
-          </Box>
-          <Box>
-            <RainFallChart rainDataStore={RainDataStore} />
-            <RainChanceChart rainDataStore={RainDataStore} />
-          </Box>
+          <MainTitle>weather service dashboard</MainTitle>
+          <Container>
+            <Box>
+              <RangeSlider
+                rainDataStore={RainDataStore}
+                isPressureComp={true}
+                color="#61cdbb"
+              />
+              <RangeSlider
+                rainDataStore={RainDataStore}
+                isPressureComp={false}
+                color="#d62728"
+              />
+            </Box>
+            <Box>
+              <RainFallChart rainDataStore={RainDataStore} />
+              <RainChanceChart rainDataStore={RainDataStore} />
+            </Box>
+          </Container>
         </Styles>
       );
     }
