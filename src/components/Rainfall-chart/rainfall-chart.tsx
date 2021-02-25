@@ -1,6 +1,6 @@
 import { ResponsiveBar } from "@nivo/bar";
 import { observer } from "mobx-react";
-import { RainDataStoreImpl } from "../../rain-data-store";
+import { RainDataStoreImpl } from "../../store/rain-data-store";
 import styled from "styled-components";
 import { pipe } from "@effect-ts/system/Function";
 import { map } from "@effect-ts/system/Array";

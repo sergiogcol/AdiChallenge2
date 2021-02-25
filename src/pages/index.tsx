@@ -3,10 +3,10 @@ import { runPromiseExit } from "@effect-ts/core/Async";
 import * as Sy from "@effect-ts/core/Sync";
 import * as Sl from "@effect-ts/core/Sync/Layer";
 import type { NextPage } from "next";
-import { BarChartValues } from "../bar-chart-values";
+import { BarChartValues } from "../data/bar-chart-values";
 
-import { Home, LiveHome } from "../components/Home";
-import { HomeState } from "../components/Home/state";
+import { Home, LiveHome } from "../components/home";
+import { HomeState } from "../components/home/state";
 
 export const { HomePage, getBarChartValues } = Sy.gen(function* (_) {
   const { getBarChartValues } = yield* _(BarChartValues);

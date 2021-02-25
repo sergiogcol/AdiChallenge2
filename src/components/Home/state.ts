@@ -6,8 +6,8 @@ import * as Sl from "@effect-ts/core/Sync/Layer";
 import type { _A, _E } from "@effect-ts/core/Utils";
 import { matchTag } from "@effect-ts/core/Utils";
 import { observable } from "mobx";
-import { RainfallAmount } from "../../model";
-import { BarChartValues } from "../../bar-chart-values";
+import { RainfallAmount } from "../../model/model";
+import { BarChartValues } from "../../data/bar-chart-values";
 
 export class Done<A> {
   readonly _tag = "Done";

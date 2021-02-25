@@ -1,7 +1,7 @@
 import { observer } from "mobx-react";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { RainDataStoreImpl } from "../../rain-data-store";
+import { RainDataStoreImpl } from "../../store/rain-data-store";
 
 const sliderThumbStyles = (props: React.CSSProperties) => `
   width: 35px;
@@ -57,7 +57,6 @@ const RangeSlider: React.FC<RangeSliderProps> = observer(
         ? rainDataStore.modifyPressure(parseInt(e.target.value))
         : rainDataStore.modifyTemperature(parseInt(e.target.value));
     };
-    console.log(rainDataStore.pressure, rainDataStore.temperature);
     return (
       <>
         <h2 style={{ textAlign: "center", color: "#f47560" }}>

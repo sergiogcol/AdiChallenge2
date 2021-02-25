@@ -7,13 +7,13 @@ import { matchTag } from "@effect-ts/core/Utils";
 import { observer } from "mobx-react";
 import React from "react";
 import * as State from "./state";
-import { RainfallAmount } from "../../model";
-import RangeSlider from "../Range-slider/range-slider";
-import { LiveBarChatValues } from "../../bar-chart-values";
-import { RainDataStore } from "../../rain-data-store";
-import RainChanceChart from "../Rain-chance-chart/rain-chance-chart";
+import { RainfallAmount } from "../../model/model";
+import RangeSlider from "../range-slider/range-slider";
+import { LiveBarChatValues } from "../../data/bar-chart-values";
+import { RainDataStore } from "../../store/rain-data-store";
+import RainChanceChart from "../rain-chance-chart/rain-chance-chart";
 import styled from "styled-components";
-import RainFallChart from "../Rainfall-chart/rainfall-chart";
+import RainFallChart from "../rainfall-chart/rainfall-chart";
 
 const Styles = styled.div`
   margin: 0;

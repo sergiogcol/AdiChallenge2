@@ -5,7 +5,7 @@ import * as Sl from "@effect-ts/core/Sync/Layer";
 import type { _A } from "@effect-ts/core/Utils";
 
 import { Http, LiveHttp } from "./http";
-import { decodeRainfallAmountArray } from "./model";
+import { decodeRainfallAmountArray } from "../model/model";
 
 export const makeBarChatValues = Sy.gen(function* (_) {
   const { getJson } = yield* _(Http);
